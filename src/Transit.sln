@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B6A849
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Transit.Api.Docs", "Transit.Api.Docs\Transit.Api.Docs.shfbproj", "{34E0DBEA-27BC-4956-A631-035AFF3E1EA2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
