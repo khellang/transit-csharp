@@ -12,51 +12,49 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Beerendonk.Transit.Java;
 using System;
+using Xunit;
 
 namespace Beerendonk.Transit.Java.Tests
 {
-    [TestClass]
     public class ConvertTest
     {
-        [TestMethod]
+        [Fact]
         public void TestFromJavaTime()
         {
             var expected = new DateTimeOffset(new DateTime(2014, 8, 15, 13, 25, 37, 481, DateTimeKind.Utc)).LocalDateTime;
             var javaTime = 1408109137481L;
             DateTime result = Java.Convert.FromJavaTimeToLocal(javaTime);
-            Assert.AreEqual(expected, result);
-            Assert.AreEqual(DateTimeKind.Local, result.Kind);
+            Assert.Equal(expected, result);
+            Assert.Equal(DateTimeKind.Local, result.Kind);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestFromJavaTimeToUtc()
         {
             var expected = new DateTime(2014, 8, 15, 13, 25, 37, 481, DateTimeKind.Utc);
             var javaTime = 1408109137481L;
             DateTime result = Java.Convert.FromJavaTimeToUtc(javaTime);
-            Assert.AreEqual(expected, result);
-            Assert.AreEqual(DateTimeKind.Utc, result.Kind);
+            Assert.Equal(expected, result);
+            Assert.Equal(DateTimeKind.Utc, result.Kind);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLocalToJavaTime()
         {
             var expected = 1407575935427L;
             var dateTime = new DateTimeOffset(new DateTime(2014, 8, 9, 9, 18, 55, 427, DateTimeKind.Utc)).LocalDateTime;
             var result = Java.Convert.ToJavaTime(dateTime);
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestUtcToJavaTime()
         {
             var expected = 1407575935427L;
             var dateTime = new DateTime(2014, 8, 9, 9, 18, 55, 427, DateTimeKind.Utc);
             var result = Java.Convert.ToJavaTime(dateTime);
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
     }
 }

@@ -12,164 +12,163 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Beerendonk.Transit.Java;
 using System;
+using Xunit;
 
 namespace Beerendonk.Transit.Tests.Java
 {
-    [TestClass]
     public class UuidTest
     {
-        [TestMethod]
+        [Fact]
         public void TestConstructor()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.AreEqual(1, uuid.MostSignificantBits);
-            Assert.AreEqual(2, uuid.LeastSignificantBits);
+            Assert.Equal(1, uuid.MostSignificantBits);
+            Assert.Equal(2, uuid.LeastSignificantBits);
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldNotEqualNull()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsFalse(uuid.Equals(null));
+            Assert.False(uuid.Equals(null));
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldNotEqualOtherType()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsFalse(uuid.Equals(new object()));
+            Assert.False(uuid.Equals(new object()));
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldEqualSimilarUuidObject()
         {
             var uuid = new Uuid(1, 2);
             object other = new Uuid(1, 2);
 
-            Assert.IsTrue(uuid.Equals(other));
+            Assert.True(uuid.Equals(other));
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldNotEqualOtherUuidObject()
         {
             var uuid = new Uuid(1, 2);
             object other = new Uuid(3, 4);
 
-            Assert.IsFalse(uuid.Equals(other));
+            Assert.False(uuid.Equals(other));
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldEqualSimilarUuid()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsTrue(uuid.Equals(new Uuid(1, 2)));
+            Assert.True(uuid.Equals(new Uuid(1, 2)));
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldNotEqualOtherUuid()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsFalse(uuid.Equals(new Uuid(3, 4)));
+            Assert.False(uuid.Equals(new Uuid(3, 4)));
         }
 
-        [TestMethod]
+        [Fact]
         public void OperationOverloadEqual_ShouldEqualSimilarUuid()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsTrue(uuid == new Uuid(1, 2));
+            Assert.True(uuid == new Uuid(1, 2));
         }
 
-        [TestMethod]
+        [Fact]
         public void OperationOverloadEqual_ShouldNotEqualOtherUuid()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsFalse(uuid == new Uuid(3, 4));
+            Assert.False(uuid == new Uuid(3, 4));
         }
 
-        [TestMethod]
+        [Fact]
         public void OperationOverloadUnequal_ShouldUnequalOtherUuid()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsTrue(uuid != new Uuid(3, 4));
+            Assert.True(uuid != new Uuid(3, 4));
         }
 
-        [TestMethod]
+        [Fact]
         public void OperationOverloadUnequal_ShouldNotUnequalSimilarUuid()
         {
             var uuid = new Uuid(1, 2);
 
-            Assert.IsFalse(uuid != new Uuid(1, 2));
+            Assert.False(uuid != new Uuid(1, 2));
         }
 
-        [TestMethod]
+        [Fact]
         public void HashCodeShouldEqualGuidHashCode()
         {
             var guid = Guid.NewGuid();
 
-            Assert.AreEqual(guid.GetHashCode(), ((Uuid)guid).GetHashCode());
+            Assert.Equal(guid.GetHashCode(), ((Uuid)guid).GetHashCode());
         }
 
-        [TestMethod]
+        [Fact]
         public void ConvertToGuidOfDefaultUuidShouldReturnDefaultGuid()
         {
             var uuid = default(Uuid);
 
-            Assert.AreEqual(default(Guid), (Guid)uuid);
+            Assert.Equal(default(Guid), (Guid)uuid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ConvertToGuidShouldReturnCorrectGuid()
         {
             var uuid = new Uuid(-1714729031470661412L, -8577612382363445748L);
 
-            Assert.AreEqual(new Guid("e8340f07-e924-40dc-88f6-32fc003c160c"), (Guid)uuid);
+            Assert.Equal(new Guid("e8340f07-e924-40dc-88f6-32fc003c160c"), (Guid)uuid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ConvertToUuidOfDefaultGuidShouldReturnDefaultUuid()
         {
             var guid = default(Guid);
 
-            Assert.AreEqual(default(Uuid), (Uuid)guid);
+            Assert.Equal(default(Uuid), (Uuid)guid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ConvertToUuidShouldReturnCorrectUuid()
         {
             var guid = new Guid("e8340f07-e924-40dc-88f6-32fc003c160c");
 
             var uuid = (Uuid)guid; 
 
-            Assert.AreEqual(-1714729031470661412L, uuid.MostSignificantBits);
-            Assert.AreEqual(-8577612382363445748L, uuid.LeastSignificantBits);
+            Assert.Equal(-1714729031470661412L, uuid.MostSignificantBits);
+            Assert.Equal(-8577612382363445748L, uuid.LeastSignificantBits);
         }
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldReturnCorrectString()
         {
             var uuid = new Uuid(-1714729031470661412L, -8577612382363445748L);
 
-            Assert.AreEqual("e8340f07-e924-40dc-88f6-32fc003c160c", uuid.ToString());
+            Assert.Equal("e8340f07-e924-40dc-88f6-32fc003c160c", uuid.ToString());
         }
 
-        [TestMethod]
+        [Fact]
         public void FromStringShouldReturnCorrectUuid()
         {
             var uuid = Uuid.FromString("e8340f07-e924-40dc-88f6-32fc003c160c");
 
-            Assert.AreEqual(-1714729031470661412L, uuid.MostSignificantBits);
-            Assert.AreEqual(-8577612382363445748L, uuid.LeastSignificantBits);
+            Assert.Equal(-1714729031470661412L, uuid.MostSignificantBits);
+            Assert.Equal(-8577612382363445748L, uuid.LeastSignificantBits);
         }
     }
 }
