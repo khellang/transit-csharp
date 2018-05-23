@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit", "Transit\Transit.csproj", "{E4858DF4-50A2-476E-AB3D-2C901D6ED24D}"
 EndProject
@@ -30,10 +30,11 @@ Global
 		{0A95E77B-6676-42A4-9BEB-C90295E1079D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A95E77B-6676-42A4-9BEB-C90295E1079D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A95E77B-6676-42A4-9BEB-C90295E1079D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34E0DBEA-27BC-4956-A631-035AFF3E1EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34E0DBEA-27BC-4956-A631-035AFF3E1EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D374B52-2BC6-4247-9564-AE4C98C9591D}
 	EndGlobalSection
 EndGlobal
