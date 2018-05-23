@@ -7,12 +7,15 @@
 
   <PropertyGroup>
     <Version>0.9.0</Version>
+    <Authors>Beerendonk</Authors>
     <Company>Beerendonk</Company>
     <PackageId>Transit</PackageId>
     <Copyright>Copyright © Beerendonk 2014</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/Beerendonk/transit-csharp</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/Beerendonk/transit-csharp/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>Transit</PackageTags>
+    <Description>Transit is a data format and a set of libraries for conveying values between applications written in different languages. This library provides support for marshalling Transit data to/from .NET.</Description>
   </PropertyGroup>
 
   <ItemGroup>
