@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>0.9.0</Version>
     <Company>Beerendonk</Company>
     <PackageId>Transit</PackageId>
     <Copyright>Copyright © Beerendonk 2014</Copyright>
