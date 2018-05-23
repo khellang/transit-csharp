@@ -67,7 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Transit\Transit.csproj">
+    <ProjectReference Include="..\..\src\Transit\Transit.csproj">
       <Project>{e4858df4-50a2-476e-ab3d-2c901d6ed24d}</Project>
       <Name>Transit</Name>
     </ProjectReference>
